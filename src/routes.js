@@ -248,8 +248,8 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Applications",
-    key: "applications",
+    name: "Transmissions",
+    key: "transmissions",
     icon: <SettingsIcon size="12px" />,
     collapse: [
       {
@@ -286,8 +286,8 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Ecommerce",
-    key: "ecommerce",
+    name: "Images",
+    key: "images",
     icon: <Basket size="12px" />,
     collapse: [
       {
