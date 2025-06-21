@@ -12,8 +12,8 @@
     "url": "git+https://github.com/creativetimofficial/ct-soft-ui-dashboard-pro-react.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "react-scripts start",
+    "start": "WDS_SOCKET_HOST=0.0.0.0 react-scripts start",
+    "dev": "WDS_SOCKET_HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
