@@ -40,7 +40,7 @@ function PagesMenu({ routes, open = false, close = false, mobileMenu = false }) 
         key === routeName && (
           <Fragment key={key}>
             <DefaultNavbarCategory icon={icon} title={name} />
-            {collapse.map(({ key: collapseKey, route, name: collapseName }) => (
+            {collapse && Array.isArray(collapse) && collapse.map(({ key: collapseKey, route, name: collapseName }) => (
               <MenuItem
                 key={collapseKey}
                 component={Link}
