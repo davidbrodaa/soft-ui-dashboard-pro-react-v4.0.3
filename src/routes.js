@@ -147,11 +147,11 @@ const routes = [
       { name: "CRM", key: "crm", route: "/dashboards/crm", component: <CRM /> },
     ],
   },
-  { type: "title", title: "Pages", key: "title-pages" },
+  { type: "title", title: "Company", key: "title-company" },
   {
     type: "collapse",
-    name: "Pages",
-    key: "pages",
+    name: "Company",
+    key: "company",
     icon: <Office size="12px" />,
     collapse: [
       {
