@@ -40,8 +40,6 @@ import Default from "layouts/dashboards/default";
 import SmartHome from "layouts/dashboards/smart-home";
 import CRM from "layouts/dashboards/crm";
 import ProfileOverview from "layouts/pages/profile/profile-overview";
-import Teams from "layouts/pages/profile/teams";
-import AllProjects from "layouts/pages/profile/all-projects";
 import Reports from "layouts/pages/users/reports";
 import NewUser from "layouts/pages/users/new-user";
 import Settings from "layouts/pages/account/settings";
@@ -130,26 +128,8 @@ const routes = [
       {
         name: "Profile",
         key: "profile",
-        collapse: [
-          {
-            name: "Profile Overview",
-            key: "profile-overview",
-            route: "/pages/profile/profile-overview",
-            component: <ProfileOverview />,
-          },
-          {
-            name: "Teams",
-            key: "teams",
-            route: "/pages/profile/teams",
-            component: <Teams />,
-          },
-          {
-            name: "All Projects",
-            key: "all-projects",
-            route: "/pages/profile/all-projects",
-            component: <AllProjects />,
-          },
-        ],
+        route: "/pages/profile/profile-overview",
+        component: <ProfileOverview />,
       },
       {
         name: "Users",

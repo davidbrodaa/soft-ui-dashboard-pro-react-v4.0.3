@@ -78,23 +78,7 @@ const pageRoutes = [
     name: "Profile",
     key: "profile",
     icon: <Shop size="12px" color="white" />,
-    collapse: [
-      {
-        name: "Profile Overview",
-        key: "profile-overview",
-        route: "/pages/profile/profile-overview",
-      },
-      {
-        name: "Teams",
-        key: "teams",
-        route: "/pages/profile/teams",
-      },
-      {
-        name: "All Projects",
-        key: "all-projects",
-        route: "/pages/profile/all-projects",
-      },
-    ],
+    route: "/pages/profile/profile-overview",
   },
   {
     name: "Extra",
