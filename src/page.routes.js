@@ -50,11 +50,6 @@ const pageRoutes = [
         route: "/dashboards/default",
       },
       {
-        name: "Automotive",
-        key: "automotive",
-        route: "/dashboards/automotive",
-      },
-      {
         name: "Smart Home",
         key: "smart-home",
         route: "/dashboards/smart-home",

@@ -37,7 +37,6 @@ Coded by www.creative-tim.com
 
 // Soft UI Dashboard PRO React layouts
 import Default from "layouts/dashboards/default";
-import Automotive from "layouts/dashboards/automotive";
 import SmartHome from "layouts/dashboards/smart-home";
 import CRM from "layouts/dashboards/crm";
 import ProfileOverview from "layouts/pages/profile/profile-overview";
@@ -111,12 +110,6 @@ const routes = [
         key: "default",
         route: "/dashboards/default",
         component: <Default />,
-      },
-      {
-        name: "Automotive",
-        key: "automotive",
-        route: "/dashboards/automotive",
-        component: <Automotive />,
       },
       {
         name: "Smart Home",
