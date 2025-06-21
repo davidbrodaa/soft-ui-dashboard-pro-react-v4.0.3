@@ -3,7 +3,10 @@
 * Soft UI Dashboard PRO React - v4.0.3
 =========================================================
 
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react
+* Copyright 2024 Creative Tim (https://www.creative-tim.com)
 
+Coded by www.creative-tim.com
 
  =========================================================
 
@@ -41,7 +44,7 @@ import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 // Soft UI Dashboard PRO React context
 import { useSoftUIController, setMiniSidenav } from "context";
 
-function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
+function Sidenav({ color = "info", brand, routes, ...rest }) {
   const [openCollapse, setOpenCollapse] = useState(false);
   const [openNestedCollapse, setOpenNestedCollapse] = useState(false);
   const [controller, dispatch] = useSoftUIController();
@@ -226,16 +229,10 @@ function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
             <Icon sx={{ fontWeight: "bold" }}>close</Icon>
           </SoftTypography>
         </SoftBox>
-        <SoftBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <SoftBox component="img" src={brand} alt="BizBeam LLC." width="2rem" />}
-          <SoftBox
-            width={!brandName && "100%"}
-            sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
-          >
-            <SoftTypography component="h6" variant="button" fontWeight="medium">
-              BizBeam
-            </SoftTypography>
-          </SoftBox>
+        <SoftBox component={NavLink} to="/" display="flex" alignItems="center" justifyContent="center">
+          {brand && (
+            <SoftBox component="img" src={brand} alt="BizBeam LLC." width="100%" maxWidth="160px" />
+          )}
         </SoftBox>
       </SoftBox>
       <Divider />
@@ -253,7 +250,6 @@ function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
 Sidenav.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   brand: PropTypes.string,
-  brandName: PropTypes.string.isRequired,
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

@@ -141,7 +141,6 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand={bizbeamLogo}
-              brandName="BizBeam"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
@@ -165,7 +164,6 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={bizbeamLogo}
-            brandName="BizBeam"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
