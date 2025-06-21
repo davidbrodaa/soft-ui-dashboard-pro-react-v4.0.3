@@ -59,16 +59,6 @@ const pageRoutes = [
         key: "smart-home",
         route: "/dashboards/smart-home",
       },
-      {
-        name: "VR Default",
-        key: "vr-default",
-        route: "/dashboards/virtual-reality/default",
-      },
-      {
-        name: "VR Info",
-        key: "vr-info",
-        route: "/dashboards/virtual-reality/info",
-      },
       { name: "CRM", key: "crm", route: "/dashboards/crm" },
     ],
   },

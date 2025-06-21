@@ -39,8 +39,6 @@ Coded by www.creative-tim.com
 import Default from "layouts/dashboards/default";
 import Automotive from "layouts/dashboards/automotive";
 import SmartHome from "layouts/dashboards/smart-home";
-import VRDefault from "layouts/dashboards/virtual-reality/vr-default";
-import VRInfo from "layouts/dashboards/virtual-reality/vr-info";
 import CRM from "layouts/dashboards/crm";
 import ProfileOverview from "layouts/pages/profile/profile-overview";
 import Teams from "layouts/pages/profile/teams";
@@ -125,24 +123,6 @@ const routes = [
         key: "smart-home",
         route: "/dashboards/smart-home",
         component: <SmartHome />,
-      },
-      {
-        name: "Virtual Reality",
-        key: "virtual-reality",
-        collapse: [
-          {
-            name: "VR Default",
-            key: "vr-default",
-            route: "/dashboards/virtual-reality/default",
-            component: <VRDefault />,
-          },
-          {
-            name: "VR Info",
-            key: "vr-info",
-            route: "/dashboards/virtual-reality/info",
-            component: <VRInfo />,
-          },
-        ],
       },
       { name: "CRM", key: "crm", route: "/dashboards/crm", component: <CRM /> },
     ],
