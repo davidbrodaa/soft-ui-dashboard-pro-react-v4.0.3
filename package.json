@@ -1,19 +1,12 @@
 {
-  "name": "soft-ui-dashboard-pro-react",
+  "name": "bizbeam-dashboard",
   "version": "4.0.3",
-  "author": "Creative Tim",
+  "author": "BizBeam LLC",
   "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "React version of Soft UI Dashboard PRO by Creative Tim",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/ct-soft-ui-dashboard-pro-react/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/ct-soft-ui-dashboard-pro-react.git"
-  },
+  "description": "BizBeam Dashboard based on Soft UI Dashboard PRO React",
   "scripts": {
-    "start": "WDS_SOCKET_HOST=0.0.0.0 react-scripts start",
-    "dev": "WDS_SOCKET_HOST=0.0.0.0 react-scripts start",
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
