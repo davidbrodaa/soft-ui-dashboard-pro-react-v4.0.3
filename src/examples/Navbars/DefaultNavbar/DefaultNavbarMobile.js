@@ -30,10 +30,9 @@ import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink"
 
 // DefaultNavbar dropdown menus
 import PagesMenu from "examples/Navbars/DefaultNavbar/Menus/PagesMenu";
-import AuthenticationMenu from "examples/Navbars/DefaultNavbar/Menus/AuthenticationMenu";
+import DocsMenu from "examples/Navbars/DefaultNavbar/Menus/DocsMenu";
 import ApplicationsMenu from "examples/Navbars/DefaultNavbar/Menus/ApplicationsMenu";
 import EcommerceMenu from "examples/Navbars/DefaultNavbar/Menus/EcommerceMenu";
-import DocsMenu from "examples/Navbars/DefaultNavbar/Menus/DocsMenu";
 
 function DefaultNavbarMobile({ routes, open, close }) {
   const { width } = open && open.getBoundingClientRect();
@@ -59,48 +58,39 @@ function DefaultNavbarMobile({ routes, open, close }) {
     >
       <SoftBox px={0.5}>
         <DefaultNavbarLink
-          name="pages"
-          collapseStatus={openCollapse === "pages"}
-          onClick={() => handleSepOpenCollapse("pages")}
+          name="company"
+          collapseStatus={openCollapse === "company"}
+          onClick={() => handleSepOpenCollapse("company")}
         >
           <SoftBox maxHeight="16rem" overflow="auto">
             <PagesMenu routes={routes} mobileMenu />
           </SoftBox>
         </DefaultNavbarLink>
         <DefaultNavbarLink
-          name="authentication"
-          collapseStatus={openCollapse === "authentication"}
-          onClick={() => handleSepOpenCollapse("authentication")}
+          name="documentation"
+          collapseStatus={openCollapse === "documentation"}
+          onClick={() => handleSepOpenCollapse("documentation")}
         >
           <SoftBox maxHeight="16rem" overflow="auto">
-            <AuthenticationMenu routes={routes} mobileMenu />
+            <DocsMenu routes={routes} mobileMenu />
           </SoftBox>
         </DefaultNavbarLink>
         <DefaultNavbarLink
-          name="applications"
-          collapseStatus={openCollapse === "applications"}
-          onClick={() => handleSepOpenCollapse("applications")}
+          name="transmissions"
+          collapseStatus={openCollapse === "transmissions"}
+          onClick={() => handleSepOpenCollapse("transmissions")}
         >
           <SoftBox maxHeight="16rem" overflow="auto">
             <ApplicationsMenu routes={routes} mobileMenu />
           </SoftBox>
         </DefaultNavbarLink>
         <DefaultNavbarLink
-          name="ecommerce"
-          collapseStatus={openCollapse === "ecommerce"}
-          onClick={() => handleSepOpenCollapse("ecommerce")}
+          name="images"
+          collapseStatus={openCollapse === "images"}
+          onClick={() => handleSepOpenCollapse("images")}
         >
           <SoftBox maxHeight="16rem" overflow="auto">
             <EcommerceMenu routes={routes} mobileMenu />
-          </SoftBox>
-        </DefaultNavbarLink>
-        <DefaultNavbarLink
-          name="docs"
-          collapseStatus={openCollapse === "docs"}
-          onClick={() => handleSepOpenCollapse("docs")}
-        >
-          <SoftBox maxHeight="16rem" overflow="auto">
-            <DocsMenu routes={routes} mobileMenu />
           </SoftBox>
         </DefaultNavbarLink>
       </SoftBox>
