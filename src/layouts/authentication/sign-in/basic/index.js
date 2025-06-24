@@ -16,11 +16,12 @@ Coded by www.creative-tim.com
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
+import Alert from "@mui/material/Alert";
 
 // Soft UI Dashboard PRO React components
 import SoftBox from "components/SoftBox";
@@ -36,10 +37,39 @@ import Separator from "layouts/authentication/components/Separator";
 // Images
 import curved9 from "assets/images/curved-images/curved9.jpg";
 
+// Auth context
+import { useAuth } from "context/auth/AuthContext";
+
 function Basic() {
   const [rememberMe, setRememberMe] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    
+    try {
+      const response = await signIn(email, password);
+      if (response) {
+        navigate("/dashboards/default");
+      } else {
+        setError("Failed to sign in. Please check your credentials.");
+      }
+    } catch (err) {
+      setError(err.message || "An error occurred during sign in");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <BasicLayout
@@ -57,12 +87,29 @@ function Basic() {
           <Socials />
         </SoftBox>
         <SoftBox p={3}>
-          <SoftBox component="form" role="form">
+          <SoftBox component="form" role="form" onSubmit={handleSubmit}>
+            {error && (
+              <SoftBox mb={2}>
+                <Alert severity="error">{error}</Alert>
+              </SoftBox>
+            )}
             <SoftBox mb={2}>
-              <SoftInput type="email" placeholder="Email" />
+              <SoftInput 
+                type="email" 
+                placeholder="Email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="password" placeholder="Password" />
+              <SoftInput 
+                type="password" 
+                placeholder="Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </SoftBox>
             <SoftBox display="flex" alignItems="center">
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -76,8 +123,14 @@ function Basic() {
               </SoftTypography>
             </SoftBox>
             <SoftBox mt={4} mb={1}>
-              <SoftButton variant="gradient" color="info" fullWidth>
-                sign in
+              <SoftButton 
+                variant="gradient" 
+                color="info" 
+                fullWidth
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Signing in..." : "Sign in"}
               </SoftButton>
             </SoftBox>
             <Separator />
@@ -91,6 +144,21 @@ function Basic() {
               >
                 sign up
               </SoftButton>
+            </SoftBox>
+            <SoftBox textAlign="center">
+              <SoftTypography variant="button" color="text" fontWeight="regular">
+                Forgot your password?{" "}
+                <SoftTypography
+                  component={Link}
+                  to="/authentication/reset-password/basic"
+                  variant="button"
+                  color="info"
+                  fontWeight="medium"
+                  textGradient
+                >
+                  Reset Password
+                </SoftTypography>
+              </SoftTypography>
             </SoftBox>
           </SoftBox>
         </SoftBox>

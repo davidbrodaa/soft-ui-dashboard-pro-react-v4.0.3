@@ -13,7 +13,8 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -39,29 +40,53 @@ import pageRoutes from "page.routes";
 // Auth context
 import { useAuth } from "context/auth/AuthContext";
 
-function Basic() {
-  const [email, setEmail] = useState("");
+function UpdatePassword() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { resetPassword } = useAuth();
+  const { updatePassword, user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is authenticated and has access to this page
+    if (!user) {
+      navigate("/authentication/sign-in/basic");
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    
+    // Validate passwords
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+    
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+    
     setLoading(true);
     
     try {
-      const result = await resetPassword(email);
+      const result = await updatePassword(password);
       if (result) {
-        setSuccess("Password reset email sent! Check your inbox for further instructions.");
+        setSuccess("Password updated successfully!");
+        setTimeout(() => {
+          navigate("/authentication/sign-in/basic");
+        }, 3000);
       } else {
-        setError("Failed to send reset email. Please try again.");
+        setError("Failed to update password. Please try again.");
       }
     } catch (err) {
-      setError(err.message || "An error occurred while sending the reset email");
+      setError(err.message || "An error occurred while updating the password");
     } finally {
       setLoading(false);
     }
@@ -83,10 +108,10 @@ function Basic() {
             <Card>
               <SoftBox pt={3} px={3} pb={1} textAlign="center">
                 <SoftTypography variant="h4" fontWeight="bold" textGradient>
-                  Reset password
+                  Update Password
                 </SoftTypography>
                 <SoftTypography variant="body2" color="text">
-                  You will receive an e-mail in maximum 60 seconds
+                  Enter your new password
                 </SoftTypography>
               </SoftBox>
               <SoftBox p={3}>
@@ -103,10 +128,19 @@ function Basic() {
                   )}
                   <SoftBox mb={2}>
                     <SoftInput 
-                      type="email" 
-                      placeholder="Email" 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="password" 
+                      placeholder="New Password" 
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </SoftBox>
+                  <SoftBox mb={2}>
+                    <SoftInput 
+                      type="password" 
+                      placeholder="Confirm New Password" 
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       required
                     />
                   </SoftBox>
@@ -119,7 +153,7 @@ function Basic() {
                       type="submit"
                       disabled={loading}
                     >
-                      {loading ? "Sending..." : "Send"}
+                      {loading ? "Updating..." : "Update Password"}
                     </SoftButton>
                   </SoftBox>
                 </SoftBox>
@@ -133,4 +167,4 @@ function Basic() {
   );
 }
 
-export default Basic;
+export default UpdatePassword;

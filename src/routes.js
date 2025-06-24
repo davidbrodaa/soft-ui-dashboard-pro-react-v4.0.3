@@ -77,6 +77,7 @@ import SignUpIllustration from "layouts/authentication/sign-up/illustration";
 import ResetBasic from "layouts/authentication/reset-password/basic";
 import ResetCover from "layouts/authentication/reset-password/cover";
 import ResetIllustration from "layouts/authentication/reset-password/illustration";
+import UpdatePassword from "layouts/authentication/reset-password/update";
 import LockBasic from "layouts/authentication/lock/basic";
 import LockCover from "layouts/authentication/lock/cover";
 import LockIllustration from "layouts/authentication/lock/illustration";
@@ -342,8 +343,8 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Authentication",
-    key: "authentication",
+    name: "Documentation",
+    key: "documentation",
     icon: <Document size="12px" />,
     collapse: [
       {
@@ -415,6 +416,12 @@ const routes = [
             key: "illustration",
             route: "/authentication/reset-password/illustration",
             component: <ResetIllustration />,
+          },
+          {
+            name: "Update Password",
+            key: "update",
+            route: "/authentication/reset-password/update",
+            component: <UpdatePassword />,
           },
         ],
       },

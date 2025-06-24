@@ -29,6 +29,7 @@ import SoftBox from "components/SoftBox";
 // Soft UI Dashboard PRO React example components
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
+import PrivateRoute from "examples/PrivateRoute";
 
 // Soft UI Dashboard PRO React themes
 import theme from "assets/theme";
@@ -44,6 +45,7 @@ import routes from "routes";
 
 // Soft UI Dashboard PRO React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+import { useAuth } from "context/auth/AuthContext";
 
 // Images
 import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
@@ -54,6 +56,7 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+  const { user } = useAuth();
 
   // Cache for the rtl
   useMemo(() => {
@@ -95,6 +98,21 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
+  // Filter routes that require authentication
+  const authRoutes = routes.filter(route => 
+    route.key !== "documentation" && 
+    route.key !== "basic" && 
+    route.key !== "components" && 
+    route.key !== "changelog"
+  );
+
+  const publicRoutes = routes.filter(route => 
+    route.key === "documentation" || 
+    route.key === "basic" || 
+    route.key === "components" || 
+    route.key === "changelog"
+  );
+
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
       if (route.collapse) {
@@ -102,7 +120,24 @@ export default function App() {
       }
 
       if (route.route) {
-        return <Route exact path={route.route} element={route.component} key={route.key} />;
+        // Check if route is an authentication route
+        if (route.route.includes("/authentication/") && route.route !== "/authentication/reset-password/update") {
+          return <Route exact path={route.route} element={route.component} key={route.key} />;
+        }
+        
+        // Protected routes
+        return (
+          <Route
+            exact
+            path={route.route}
+            element={
+              <PrivateRoute>
+                {route.component}
+              </PrivateRoute>
+            }
+            key={route.key}
+          />
+        );
       }
 
       return null;
@@ -136,7 +171,7 @@ export default function App() {
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
         <CssBaseline />
-        {layout === "dashboard" && (
+        {layout === "dashboard" && user && (
           <>
             <Sidenav
               color={sidenavColor}
@@ -151,14 +186,14 @@ export default function App() {
         )}
         <Routes>
           {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboards/default" />} />
+          <Route path="*" element={<Navigate to="/authentication/sign-in/basic" />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>
   ) : (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {layout === "dashboard" && (
+      {layout === "dashboard" && user && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -173,7 +208,7 @@ export default function App() {
       )}
       <Routes>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/dashboards/default" />} />
+        <Route path="*" element={<Navigate to="/authentication/sign-in/basic" />} />
       </Routes>
     </ThemeProvider>
   );

@@ -16,11 +16,12 @@ Coded by www.creative-tim.com
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
+import Alert from "@mui/material/Alert";
 
 // Soft UI Dashboard PRO React components
 import SoftBox from "components/SoftBox";
@@ -36,10 +37,50 @@ import Separator from "layouts/authentication/components/Separator";
 // Images
 import curved6 from "assets/images/curved-images/curved6.jpg";
 
-function Basic() {
-  const [agreement, setAgremment] = useState(true);
+// Auth context
+import { useAuth } from "context/auth/AuthContext";
 
-  const handleSetAgremment = () => setAgremment(!agreement);
+function Basic() {
+  const [agreement, setAgreement] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+
+  const { signUp } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSetAgreement = () => setAgreement(!agreement);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!agreement) {
+      setError("You must agree to the Terms and Conditions");
+      return;
+    }
+    
+    setError("");
+    setLoading(true);
+    
+    try {
+      const response = await signUp(email, password);
+      if (response) {
+        setSuccess("Registration successful! Please check your email to confirm your account.");
+        setTimeout(() => {
+          navigate("/authentication/sign-in/basic");
+        }, 3000);
+      } else {
+        setError("Failed to sign up. Please try again.");
+      }
+    } catch (err) {
+      setError(err.message || "An error occurred during sign up");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <BasicLayout
@@ -58,22 +99,49 @@ function Basic() {
         </SoftBox>
         <Separator />
         <SoftBox pt={2} pb={3} px={3}>
-          <SoftBox component="form" role="form">
+          <SoftBox component="form" role="form" onSubmit={handleSubmit}>
+            {error && (
+              <SoftBox mb={2}>
+                <Alert severity="error">{error}</Alert>
+              </SoftBox>
+            )}
+            {success && (
+              <SoftBox mb={2}>
+                <Alert severity="success">{success}</Alert>
+              </SoftBox>
+            )}
             <SoftBox mb={2}>
-              <SoftInput placeholder="Name" />
+              <SoftInput 
+                placeholder="Name" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="email" placeholder="Email" />
+              <SoftInput 
+                type="email" 
+                placeholder="Email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="password" placeholder="Password" />
+              <SoftInput 
+                type="password" 
+                placeholder="Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </SoftBox>
             <SoftBox display="flex" alignItems="center">
-              <Checkbox checked={agreement} onChange={handleSetAgremment} />
+              <Checkbox checked={agreement} onChange={handleSetAgreement} />
               <SoftTypography
                 variant="button"
                 fontWeight="regular"
-                onClick={handleSetAgremment}
+                onClick={handleSetAgreement}
                 sx={{ cursor: "pointer", userSelect: "none" }}
               >
                 &nbsp;&nbsp;I agree the&nbsp;
@@ -89,8 +157,14 @@ function Basic() {
               </SoftTypography>
             </SoftBox>
             <SoftBox mt={4} mb={1}>
-              <SoftButton variant="gradient" color="dark" fullWidth>
-                sign up
+              <SoftButton 
+                variant="gradient" 
+                color="dark" 
+                fullWidth
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Signing up..." : "Sign up"}
               </SoftButton>
             </SoftBox>
             <SoftBox mt={3} textAlign="center">
