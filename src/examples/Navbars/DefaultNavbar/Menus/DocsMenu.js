@@ -31,30 +31,33 @@ import DefaultNavbarMenu from "examples/Navbars/DefaultNavbar/DefaultNavbarMenu"
 function DocsMenu({ routes, open = false, close = false, mobileMenu = false }) {
   const renderDocsMenuRoute = (routeName) =>
     routes.map(
-      ({ key, collapse }) =>
-        key === routeName &&
-        collapse.map(({ key: collapseKey, href, name, icon, description }) => (
-          <MenuItem
-            key={collapseKey}
-            component={Link}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            onClick={mobileMenu ? undefined : close}
-          >
-            <SoftBox display="flex" py={0.25}>
-              {typeof icon === "string" ? <Icon>{icon}</Icon> : <SoftBox mt={0.5}>{icon}</SoftBox>}
-              <SoftBox pl={2} lineHeight={0}>
-                <SoftTypography variant="h6" fontWeight="bold">
-                  {name}
-                </SoftTypography>
-                <SoftTypography variant="button" fontWeight="regular" color="text">
-                  {description}
-                </SoftTypography>
+      ({ key, collapse }) => {
+        if (key === routeName && collapse && Array.isArray(collapse)) {
+          return collapse.map(({ key: collapseKey, href, name, icon, description }) => (
+            <MenuItem
+              key={collapseKey}
+              component={Link}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              onClick={mobileMenu ? undefined : close}
+            >
+              <SoftBox display="flex" py={0.25}>
+                {typeof icon === "string" ? <Icon>{icon}</Icon> : <SoftBox mt={0.5}>{icon}</SoftBox>}
+                <SoftBox pl={2} lineHeight={0}>
+                  <SoftTypography variant="h6" fontWeight="bold">
+                    {name}
+                  </SoftTypography>
+                  <SoftTypography variant="button" fontWeight="regular" color="text">
+                    {description}
+                  </SoftTypography>
+                </SoftBox>
               </SoftBox>
-            </SoftBox>
-          </MenuItem>
-        ))
+            </MenuItem>
+          ));
+        }
+        return null;
+      }
     );
 
   return mobileMenu ? (

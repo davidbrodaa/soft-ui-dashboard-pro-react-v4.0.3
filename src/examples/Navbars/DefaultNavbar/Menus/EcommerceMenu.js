@@ -36,24 +36,28 @@ import DefaultNavbarMenu from "examples/Navbars/DefaultNavbar/DefaultNavbarMenu"
 function EcommerceMenu({ routes, open = false, close = false, mobileMenu = false }) {
   const renderEcommerceMenuRoute = (routeName) =>
     routes.map(
-      ({ key, name, icon, collapse }) =>
-        key === routeName && (
-          <Fragment key={key}>
-            <DefaultNavbarCategory icon={icon} title={name} />
-            {collapse.map(({ key: collapseKey, route, name: collapseName }) => (
-              <MenuItem
-                key={collapseKey}
-                component={Link}
-                to={route}
-                onClick={mobileMenu ? undefined : close}
-              >
-                <SoftBox color="text" pl={2}>
-                  {collapseName}
-                </SoftBox>
-              </MenuItem>
-            ))}
-          </Fragment>
-        )
+      ({ key, name, icon, collapse }) => {
+        if (key === routeName && collapse && Array.isArray(collapse)) {
+          return (
+            <Fragment key={key}>
+              <DefaultNavbarCategory icon={icon} title={name} />
+              {collapse.map(({ key: collapseKey, route, name: collapseName }) => (
+                <MenuItem
+                  key={collapseKey}
+                  component={Link}
+                  to={route}
+                  onClick={mobileMenu ? undefined : close}
+                >
+                  <SoftBox color="text" pl={2}>
+                    {collapseName}
+                  </SoftBox>
+                </MenuItem>
+              ))}
+            </Fragment>
+          );
+        }
+        return null;
+      }
     );
 
   const renderMenuContent = (

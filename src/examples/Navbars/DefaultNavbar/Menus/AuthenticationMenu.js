@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /**
 =========================================================
 * Soft UI Dashboard PRO React - v4.0.3
@@ -52,7 +51,7 @@ function Menu({ collapse, name, mobileMenu }) {
         close={closeMenu}
         style={{ paddingLeft: "1.25rem" }}
       >
-        {collapse.map(({ key: collapseKey, name: collapseName, route }) => (
+        {collapse && Array.isArray(collapse) && collapse.map(({ key: collapseKey, name: collapseName, route }) => (
           <MenuItem
             component={Link}
             to={route}
@@ -72,9 +71,9 @@ function AuthenticationMenu({ routes, open = false, close = false, mobileMenu = 
     routes.map(({ key, name, collapse }) => {
       let template;
 
-      if (key === routeName && !mobileMenu) {
+      if (key === routeName && !mobileMenu && collapse && Array.isArray(collapse)) {
         template = <Menu collapse={collapse} mobileMenu={mobileMenu} name={name} />;
-      } else if (key === routeName && mobileMenu) {
+      } else if (key === routeName && mobileMenu && collapse && Array.isArray(collapse)) {
         template = (
           <SoftBox key={key} pr={2} mt={0} mb={2}>
             <SoftTypography variant="h6" fontWeight="bold" gutterBottom>
@@ -156,7 +155,7 @@ function AuthenticationMenu({ routes, open = false, close = false, mobileMenu = 
               </Icon>
             </SoftBox>
             <SoftTypography variant="body1" fontWeight="medium" color="white">
-              Explore our utilities pages
+              Documentation
             </SoftTypography>
           </SoftBox>
         </SoftBox>
