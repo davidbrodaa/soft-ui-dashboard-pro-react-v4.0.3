@@ -37,6 +37,7 @@ import Document from "examples/Icons/Document";
 import CustomerSupport from "examples/Icons/CustomerSupport";
 import Cube from "examples/Icons/Cube";
 import SpaceShip from "examples/Icons/SpaceShip";
+import CreditCard from "examples/Icons/CreditCard";
 
 const pageRoutes = [
   {
@@ -195,6 +196,12 @@ const pageRoutes = [
         name: "Overview",
         key: "overview",
         route: "/ecommerce/overview",
+      },
+      {
+        name: "Reports",
+        key: "reports",
+        route: "/ecommerce/reports",
+        icon: <CreditCard size="12px" color="white" />,
       },
       {
         name: "Products",

@@ -277,6 +277,14 @@ const routes = [
         component: <Overview />,
       },
       {
+        name: "Reports",
+        key: "reports",
+        route: "/ecommerce/reports",
+        icon: <CreditCard size="12px" />,
+        noCollapse: true,
+        component: <Overview />,
+      },
+      {
         name: "Products",
         key: "products",
         collapse: [
