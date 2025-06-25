@@ -199,10 +199,74 @@ const pageRoutes = [
     ],
   },
   {
-    name: "Sign In",
-    key: "sign-in",
+    name: "Authentication",
+    key: "authentication",
     icon: <SpaceShip size="12px" color="white" />,
-    route: "/authentication/sign-in/basic",
+    collapse: [
+      {
+        name: "Sign In",
+        key: "sign-in",
+        collapse: [
+          {
+            name: "Basic",
+            key: "basic",
+            route: "/authentication/sign-in/basic",
+          },
+          {
+            name: "Cover",
+            key: "cover",
+            route: "/authentication/sign-in/cover",
+          },
+          {
+            name: "Illustration",
+            key: "illustration",
+            route: "/authentication/sign-in/illustration",
+          },
+        ],
+      },
+      {
+        name: "Sign Up",
+        key: "sign-up",
+        collapse: [
+          {
+            name: "Basic",
+            key: "basic",
+            route: "/authentication/sign-up/basic",
+          },
+          {
+            name: "Cover",
+            key: "cover",
+            route: "/authentication/sign-up/cover",
+          },
+          {
+            name: "Illustration",
+            key: "illustration",
+            route: "/authentication/sign-up/illustration",
+          },
+        ],
+      },
+      {
+        name: "Reset Password",
+        key: "reset-password",
+        collapse: [
+          {
+            name: "Basic",
+            key: "basic",
+            route: "/authentication/reset-password/basic",
+          },
+          {
+            name: "Cover",
+            key: "cover",
+            route: "/authentication/reset-password/cover",
+          },
+          {
+            name: "Illustration",
+            key: "illustration",
+            route: "/authentication/reset-password/illustration",
+          },
+        ],
+      },
+    ],
   },
 ];
 
