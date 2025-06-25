@@ -137,66 +137,6 @@ const pageRoutes = [
     name: "Images",
     key: "images",
     icon: <Cube size="12px" color="white" />,
-    collapse: [
-      {
-        name: "Overview",
-        key: "overview",
-        route: "/ecommerce/overview",
-      },
-      {
-        name: "Reports",
-        key: "reports",
-        route: "/ecommerce/reports",
-        icon: <CreditCard size="12px" color="white" />,
-      },
-      {
-        name: "Products",
-        key: "products",
-        collapse: [
-          {
-            name: "New Product",
-            key: "new-product",
-            route: "/ecommerce/products/new-product",
-          },
-          {
-            name: "Edit Product",
-            key: "edit-product",
-            route: "/ecommerce/products/edit-product",
-          },
-          {
-            name: "Product Page",
-            key: "product-page",
-            route: "/ecommerce/products/product-page",
-          },
-          {
-            name: "Products List",
-            key: "products-list",
-            route: "/ecommerce/products/products-list",
-          },
-        ],
-      },
-      {
-        name: "Orders",
-        key: "orders",
-        collapse: [
-          {
-            name: "Order List",
-            key: "order-list",
-            route: "/ecommerce/orders/order-list",
-          },
-          {
-            name: "Order Details",
-            key: "order-details",
-            route: "/ecommerce/orders/order-details",
-          },
-        ],
-      },
-      {
-        name: "Referral",
-        key: "referral",
-        route: "/ecommerce/referral",
-      },
-    ],
   },
   {
     name: "Authentication",
