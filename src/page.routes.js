@@ -54,24 +54,7 @@ const pageRoutes = [
     key: "extra",
     icon: <Document size="12px" color="white" />,
     collapse: [
-      {
-        name: "Pricing Page",
-        key: "pricing-page",
-        route: "/pages/pricing-page",
-      },
-      { name: "RTL", key: "rtl", route: "/pages/rtl" },
-      { name: "Widgets", key: "widgets", route: "/pages/widgets" },
-      { name: "Charts", key: "charts", route: "/pages/charts" },
-      {
-        name: "Sweet Alerts",
-        key: "sweet-alerts",
-        route: "/pages/sweet-alerts",
-      },
-      {
-        name: "Notfications",
-        key: "notifications",
-        route: "/pages/notifications",
-      },
+      { name: "Notifications", key: "notifications", route: "/pages/notifications" },
     ],
   },
   {

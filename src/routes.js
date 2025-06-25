@@ -12,12 +12,7 @@ import Security from "layouts/pages/account/security";
 import General from "layouts/pages/projects/general";
 import Timeline from "layouts/pages/projects/timeline";
 import NewProject from "layouts/pages/projects/new-project";
-import Widgets from "layouts/pages/widgets";
-import Charts from "layouts/pages/charts";
-import SweetAlerts from "layouts/pages/sweet-alerts";
 import Notifications from "layouts/pages/notifications";
-import PricingPage from "layouts/pages/pricing-page";
-import RTL from "layouts/pages/rtl";
 import Wizard from "layouts/applications/wizard";
 import DataTables from "layouts/applications/data-tables";
 import Calendar from "layouts/applications/calendar";
@@ -49,7 +44,7 @@ import VerificationIllustration from "layouts/authentication/2-step-verification
 import Error404 from "layouts/authentication/error/404";
 import Error500 from "layouts/authentication/error/500";
 
-// Soft UI Dashboard PRO React icons
+// React icons
 import Shop from "examples/Icons/Shop";
 import Office from "examples/Icons/Office";
 import SettingsIcon from "examples/Icons/Settings";
@@ -167,22 +162,7 @@ const routes = [
         ],
       },
       {
-        name: "Pricing Page",
-        key: "pricing-page",
-        route: "/pages/pricing-page",
-        component: <PricingPage />,
-      },
-      { name: "RTL", key: "rtl", route: "/pages/rtl", component: <RTL /> },
-      { name: "Widgets", key: "widgets", route: "/pages/widgets", component: <Widgets /> },
-      { name: "Charts", key: "charts", route: "/pages/charts", component: <Charts /> },
-      {
-        name: "Sweet Alerts",
-        key: "sweet-alerts",
-        route: "/pages/sweet-alerts",
-        component: <SweetAlerts />,
-      },
-      {
-        name: "Notfications",
+        name: "Notifications",
         key: "notifications",
         route: "/pages/notifications",
         component: <Notifications />,
