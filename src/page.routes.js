@@ -137,6 +137,18 @@ const pageRoutes = [
     name: "Images",
     key: "images",
     icon: <Cube size="12px" color="white" />,
+    collapse: [
+      {
+        name: "Documentation",
+        key: "documentation",
+        route: "/images/documentation",
+      },
+      {
+        name: "Reports",
+        key: "image-reports",
+        route: "/images/reports",
+      },
+    ],
   },
   {
     name: "Authentication",

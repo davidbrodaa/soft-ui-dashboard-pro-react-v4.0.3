@@ -220,7 +220,20 @@ const routes = [
     name: "Images",
     key: "images",
     icon: <Basket size="12px" />,
-    collapse: [],
+    collapse: [
+      {
+        name: "Documentation",
+        key: "documentation",
+        route: "/images/documentation",
+        component: <General />,
+      },
+      {
+        name: "Reports",
+        key: "image-reports",
+        route: "/images/reports",
+        component: <Reports />,
+      },
+    ],
   },
   {
     type: "collapse",
