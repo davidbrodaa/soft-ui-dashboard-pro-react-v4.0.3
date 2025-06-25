@@ -9,11 +9,7 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
 // Soft UI Dashboard PRO React example components
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
-
-// Soft UI Dashboard PRO React page layout routes
-import pageRoutes from "page.routes";
 
 // Images
 import pattern from "assets/images/shapes/pattern-lines.svg";
@@ -22,14 +18,6 @@ import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
 function IllustrationLayout({ color = "info", header = "", title = "", description = "", illustration = {}, children }) {
   return (
     <PageLayout background="white">
-      <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/soft-ui-dashboard-pro-react",
-          label: "buy now",
-        }}
-      />
       <Grid container>
         <Grid item xs={11} sm={8} md={6} lg={4} xl={3} sx={{ mx: "auto" }}>
           <SoftBox display="flex" flexDirection="column" justifyContent="center" height="100vh">

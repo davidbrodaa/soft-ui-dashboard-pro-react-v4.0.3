@@ -1,4 +1,3 @@
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -10,14 +9,10 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
 // Soft UI Dashboard PRO React example components
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
 // Authentication layout components
 import Footer from "layouts/authentication/components/Footer";
-
-// Soft UI Dashboard PRO React page layout routes
-import pageRoutes from "page.routes";
 
 // Images
 import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
@@ -25,14 +20,6 @@ import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
 function CoverLayout({ color = "info", header = "", title = "", description = "", image, top = 20, children }) {
   return (
     <PageLayout background="white">
-      <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/soft-ui-dashboard-pro-react",
-          label: "buy now",
-        }}
-      />
       <Grid
         container
         justifyContent="center"
