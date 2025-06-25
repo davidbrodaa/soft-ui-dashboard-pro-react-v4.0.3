@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "App";
 
-// Soft UI Context Provider
+// Context Provider
 import { SoftUIControllerProvider } from "context";
 import { AuthProvider } from "context/auth/AuthContext";
 
