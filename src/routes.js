@@ -59,8 +59,8 @@ import Error404 from "layouts/authentication/error/404";
 import Error500 from "layouts/authentication/error/500";
 
 // Custom layouts
-import Documentation from "layouts/documentation";
-import ImageReports from "layouts/reports";
+import Documentation from "layouts/images/documentation";
+import ImageReports from "layouts/images/reports";
 
 // React icons
 import Shop from "examples/Icons/Shop";
