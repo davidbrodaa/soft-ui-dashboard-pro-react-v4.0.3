@@ -3,12 +3,8 @@ import { createClient } from "@supabase/supabase-js";
 import PropTypes from "prop-types";
 
 // Create a Supabase client
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables. Please check your .env file.");
-}
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || "https://your-supabase-url.supabase.co";
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY || "your-supabase-anon-key";
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -23,28 +19,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check active sessions and sets the user
-    const getInitialSession = async () => {
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        
-        if (error) {
-          console.error("Error getting session:", error);
-          setError(error.message);
-        } else {
-          setUser(session?.user || null);
-        }
-      } catch (err) {
-        console.error("Error in getInitialSession:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const session = supabase.auth.getSession();
 
-    getInitialSession();
+    setUser(session?.user || null);
+    setLoading(false);
 
     // Listen for changes on auth state (logged in, signed out, etc.)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    const { data: authListener } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         setUser(session?.user || null);
         setLoading(false);
@@ -52,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     );
 
     return () => {
-      subscription?.unsubscribe();
+      authListener?.subscription?.unsubscribe();
     };
   }, []);
 
@@ -60,7 +41,6 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (email, password) => {
     try {
       setLoading(true);
-      setError(null);
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -69,7 +49,6 @@ export const AuthProvider = ({ children }) => {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error("Sign up error:", error);
       setError(error.message);
       return null;
     } finally {
@@ -81,7 +60,6 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (email, password) => {
     try {
       setLoading(true);
-      setError(null);
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -90,7 +68,6 @@ export const AuthProvider = ({ children }) => {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error("Sign in error:", error);
       setError(error.message);
       return null;
     } finally {
@@ -102,11 +79,9 @@ export const AuthProvider = ({ children }) => {
   const signOut = async () => {
     try {
       setLoading(true);
-      setError(null);
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
     } catch (error) {
-      console.error("Sign out error:", error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -117,7 +92,6 @@ export const AuthProvider = ({ children }) => {
   const resetPassword = async (email) => {
     try {
       setLoading(true);
-      setError(null);
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/authentication/reset-password/update`,
       });
@@ -125,7 +99,6 @@ export const AuthProvider = ({ children }) => {
       if (error) throw error;
       return true;
     } catch (error) {
-      console.error("Reset password error:", error);
       setError(error.message);
       return false;
     } finally {
@@ -137,7 +110,6 @@ export const AuthProvider = ({ children }) => {
   const updatePassword = async (newPassword) => {
     try {
       setLoading(true);
-      setError(null);
       const { error } = await supabase.auth.updateUser({
         password: newPassword,
       });
@@ -145,7 +117,6 @@ export const AuthProvider = ({ children }) => {
       if (error) throw error;
       return true;
     } catch (error) {
-      console.error("Update password error:", error);
       setError(error.message);
       return false;
     } finally {
