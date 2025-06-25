@@ -39,6 +39,14 @@ import Wizard from "layouts/applications/wizard";
 import DataTables from "layouts/applications/data-tables";
 import Calendar from "layouts/applications/calendar";
 import Analytics from "layouts/applications/analytics";
+import Overview from "layouts/ecommerce/overview";
+import NewProduct from "layouts/ecommerce/products/new-product";
+import EditProduct from "layouts/ecommerce/products/edit-product";
+import ProductPage from "layouts/ecommerce/products/product-page";
+import ProductsList from "layouts/ecommerce/products/products-list";
+import OrderList from "layouts/ecommerce/orders/order-list/index.js";
+import OrderDetails from "layouts/ecommerce/orders/order-details/index.js";
+import Referral from "layouts/ecommerce/referral/index.js";
 import SignInBasic from "layouts/authentication/sign-in/basic";
 import SignInCover from "layouts/authentication/sign-in/cover";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
@@ -62,9 +70,11 @@ import Error500 from "layouts/authentication/error/500";
 import Shop from "examples/Icons/Shop";
 import Office from "examples/Icons/Office";
 import SettingsIcon from "examples/Icons/Settings";
+import Basket from "examples/Icons/Basket";
 import Document from "examples/Icons/Document";
 import SpaceShip from "examples/Icons/SpaceShip";
 import CustomerSupport from "examples/Icons/CustomerSupport";
+import CreditCard from "examples/Icons/CreditCard";
 
 const routes = [
   {
@@ -210,6 +220,82 @@ const routes = [
         key: "analytics",
         route: "/applications/analytics",
         component: <Analytics />,
+      },
+    ],
+  },
+  {
+    type: "collapse",
+    name: "Images",
+    key: "images",
+    icon: <Basket size="12px" />,
+    collapse: [
+      {
+        name: "Overview",
+        key: "overview",
+        route: "/ecommerce/overview",
+        component: <Overview />,
+      },
+      {
+        name: "Reports",
+        key: "reports",
+        route: "/ecommerce/reports",
+        icon: <CreditCard size="12px" />,
+        noCollapse: true,
+        component: <Overview />,
+      },
+      {
+        name: "Products",
+        key: "products",
+        collapse: [
+          {
+            name: "New Product",
+            key: "new-product",
+            route: "/ecommerce/products/new-product",
+            component: <NewProduct />,
+          },
+          {
+            name: "Edit Product",
+            key: "edit-product",
+            route: "/ecommerce/products/edit-product",
+            component: <EditProduct />,
+          },
+          {
+            name: "Product Page",
+            key: "product-page",
+            route: "/ecommerce/products/product-page",
+            component: <ProductPage />,
+          },
+          {
+            name: "Products List",
+            key: "products-list",
+            route: "/ecommerce/products/products-list",
+            component: <ProductsList />,
+          },
+        ],
+      },
+      {
+        name: "Orders",
+        key: "orders",
+        collapse: [
+          {
+            name: "Order List",
+            key: "order-list",
+            route: "/ecommerce/orders/order-list",
+            component: <OrderList />,
+          },
+          {
+            name: "Order Details",
+            key: "order-details",
+            route: "/ecommerce/orders/order-details",
+            component: <OrderDetails />,
+          },
+        ],
+      },
+      {
+        name: "Referral",
+        key: "referral",
+        route: "/ecommerce/referral",
+        component: <Referral />,
       },
     ],
   },
