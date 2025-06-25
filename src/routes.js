@@ -249,7 +249,7 @@ const routes = [
     type: "collapse",
     name: "Authentication",
     key: "authentication",
-    icon: <Document size="12px" />,
+    icon: <SpaceShip size="12px" />,
     collapse: [
       {
         name: "Sign In",
