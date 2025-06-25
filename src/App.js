@@ -8,15 +8,15 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard PRO React components
+//  PRO React components
 import SoftBox from "components/SoftBox";
 
-// Soft UI Dashboard PRO React example components
+//  PRO React example components
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 import PrivateRoute from "examples/PrivateRoute";
 
-// Soft UI Dashboard PRO React themes
+//  PRO React themes
 import theme from "assets/theme";
 import themeRTL from "assets/theme/theme-rtl";
 
@@ -25,10 +25,10 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
-// Soft UI Dashboard PRO React routes
+//  PRO React routes
 import routes from "routes";
 
-// Soft UI Dashboard PRO React contexts
+//  PRO React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import { useAuth } from "context/auth/AuthContext";
 
