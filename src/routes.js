@@ -55,7 +55,6 @@ import SweetAlerts from "layouts/pages/sweet-alerts";
 import Notifications from "layouts/pages/notifications";
 import PricingPage from "layouts/pages/pricing-page";
 import RTL from "layouts/pages/rtl";
-import Kanban from "layouts/applications/kanban";
 import Wizard from "layouts/applications/wizard";
 import DataTables from "layouts/applications/data-tables";
 import Calendar from "layouts/applications/calendar";
@@ -233,12 +232,6 @@ const routes = [
     key: "transmissions",
     icon: <SettingsIcon size="12px" />,
     collapse: [
-      {
-        name: "Kanban",
-        key: "kanban",
-        route: "/applications/kanban",
-        component: <Kanban />,
-      },
       {
         name: "Wizard",
         key: "wizard",

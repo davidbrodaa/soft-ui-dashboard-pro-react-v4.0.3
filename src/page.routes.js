@@ -161,11 +161,6 @@ const pageRoutes = [
     icon: <Document size="12px" color="white" />,
     collapse: [
       {
-        name: "Kanban",
-        key: "kanban",
-        route: "/applications/kanban",
-      },
-      {
         name: "Wizard",
         key: "wizard",
         route: "/applications/wizard",
