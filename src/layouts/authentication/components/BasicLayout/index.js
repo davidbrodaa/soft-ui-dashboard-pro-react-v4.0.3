@@ -24,7 +24,16 @@ import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
 function BasicLayout({ title = "", description = "", image, children }) {
   return (
     <PageLayout>
-     
+      <DefaultNavbar
+        routes={pageRoutes}
+        action={{
+          type: "external",
+          route: "https://creative-tim.com/product/soft-ui-dashboard-pro-react",
+          label: "buy now",
+        }}
+        transparent
+        light
+      />
       <SoftBox
         width="calc(100% - 2rem)"
         minHeight="50vh"
