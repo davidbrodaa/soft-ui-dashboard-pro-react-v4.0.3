@@ -32,6 +32,7 @@ import pageRoutes from "page.routes";
 
 // Images
 import pattern from "assets/images/shapes/pattern-lines.svg";
+import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
 
 function IllustrationLayout({ color = "info", header = "", title = "", description = "", illustration = {}, children }) {
   return (
@@ -50,10 +51,8 @@ function IllustrationLayout({ color = "info", header = "", title = "", descripti
             <SoftBox pt={3} px={3}>
               {!header ? (
                 <>
-                  <SoftBox mb={1}>
-                    <SoftTypography variant="h4" fontWeight="bold">
-                      {title}
-                    </SoftTypography>
+                  <SoftBox mb={1} display="flex" justifyContent="center">
+                    <SoftBox component="img" src={bizbeamLogo} alt="BizBeam Logo" width="60%" />
                   </SoftBox>
                   <SoftTypography variant="body2" fontWeight="regular" color="text">
                     {description}

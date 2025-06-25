@@ -33,6 +33,9 @@ import Footer from "layouts/authentication/components/Footer";
 // Soft UI Dashboard PRO React page layout routes
 import pageRoutes from "page.routes";
 
+// Images
+import bizbeamLogo from "assets/images/bizbeam-logo (1).png";
+
 function BasicLayout({ title = "", description = "", image, children }) {
   return (
     <PageLayout>
@@ -68,10 +71,8 @@ function BasicLayout({ title = "", description = "", image, children }) {
       >
         <Grid container spacing={3} justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item xs={10} lg={4}>
-            <SoftBox mt={6} mb={1}>
-              <SoftTypography variant="h1" color="white" fontWeight="bold">
-                {title}
-              </SoftTypography>
+            <SoftBox mb={1} display="flex" justifyContent="center">
+              <SoftBox component="img" src={bizbeamLogo} alt="BizBeam Logo" width="60%" />
             </SoftBox>
             <SoftBox mb={2}>
               <SoftTypography variant="body2" color="white" fontWeight="regular">
