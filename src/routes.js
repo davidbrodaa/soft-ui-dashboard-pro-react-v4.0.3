@@ -156,30 +156,6 @@ const routes = [
         ],
       },
       {
-        name: "Projects",
-        key: "projects",
-        collapse: [
-          {
-            name: "General",
-            key: "general",
-            route: "/pages/projects/general",
-            component: <General />,
-          },
-          {
-            name: "Timeline",
-            key: "timeline",
-            route: "/pages/projects/timeline",
-            component: <Timeline />,
-          },
-          {
-            name: "New Project",
-            key: "new-project",
-            route: "/pages/projects/new-project",
-            component: <NewProject />,
-          },
-        ],
-      },
-      {
         name: "Notifications",
         key: "notifications",
         route: "/pages/notifications",
@@ -231,9 +207,34 @@ const routes = [
     name: "Documentation",
     key: "documentation",
     icon: <Document size="12px" />,
+    collapse: [
+      {
+        name: "Projects",
+        key: "projects",
+        collapse: [
+          {
+            name: "General",
+            key: "general",
+            route: "/pages/projects/general",
+            component: <General />,
+          },
+          {
+            name: "Timeline",
+            key: "timeline",
+            route: "/pages/projects/timeline",
+            component: <Timeline />,
+          },
+          {
+            name: "New Project",
+            key: "new-project",
+            route: "/pages/projects/new-project",
+            component: <NewProject />,
+          },
+        ],
+      },
+    ],
     route: "/documentation",
     component: <Documentation />,
-    noCollapse: true,
   },
   {
     type: "collapse",

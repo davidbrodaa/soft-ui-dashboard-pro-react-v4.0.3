@@ -85,55 +85,6 @@ const pageRoutes = [
     ],
   },
   {
-    name: "Projects",
-    key: "projects",
-    icon: <Cube size="12px" color="white" />,
-    collapse: [
-      {
-        name: "General",
-        key: "general",
-        route: "/pages/projects/general",
-      },
-      {
-        name: "Timeline",
-        key: "timeline",
-        route: "/pages/projects/timeline",
-      },
-      {
-        name: "New Project",
-        key: "new-project",
-        route: "/pages/projects/new-project",
-      },
-    ],
-  },
-  {
-    name: "Transmissions",
-    key: "transmissions",
-    icon: <Document size="12px" color="white" />,
-    collapse: [
-      {
-        name: "Wizard",
-        key: "wizard",
-        route: "/applications/wizard",
-      },
-      {
-        name: "Data Tables",
-        key: "data-tables",
-        route: "/applications/data-tables",
-      },
-      {
-        name: "Calendar",
-        key: "calendar",
-        route: "/applications/calendar",
-      },
-      {
-        name: "Analytics",
-        key: "analytics",
-        route: "/applications/analytics",
-      },
-    ],
-  },
-  {
     name: "Images",
     key: "images",
     icon: <Cube size="12px" color="white" />,
@@ -144,6 +95,29 @@ const pageRoutes = [
     key: "documentation",
     icon: <Document size="12px" color="white" />,
     route: "/documentation",
+    collapse: [
+      {
+        name: "Projects",
+        key: "projects",
+        collapse: [
+          {
+            name: "General",
+            key: "general",
+            route: "/pages/projects/general",
+          },
+          {
+            name: "Timeline",
+            key: "timeline",
+            route: "/pages/projects/timeline",
+          },
+          {
+            name: "New Project",
+            key: "new-project",
+            route: "/pages/projects/new-project",
+          },
+        ],
+      },
+    ],
   },
   {
     name: "Reports",
