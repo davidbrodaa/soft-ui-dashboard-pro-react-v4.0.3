@@ -58,6 +58,10 @@ import VerificationIllustration from "layouts/authentication/2-step-verification
 import Error404 from "layouts/authentication/error/404";
 import Error500 from "layouts/authentication/error/500";
 
+// Custom layouts
+import Documentation from "layouts/documentation";
+import ImageReports from "layouts/reports";
+
 // React icons
 import Shop from "examples/Icons/Shop";
 import Office from "examples/Icons/Office";
@@ -220,20 +224,25 @@ const routes = [
     name: "Images",
     key: "images",
     icon: <Basket size="12px" />,
-    collapse: [
-      {
-        name: "Documentation",
-        key: "documentation",
-        route: "/images/documentation",
-        component: <General />,
-      },
-      {
-        name: "Reports",
-        key: "image-reports",
-        route: "/images/reports",
-        component: <Reports />,
-      },
-    ],
+    collapse: [],
+  },
+  {
+    type: "collapse",
+    name: "Documentation",
+    key: "documentation",
+    icon: <Document size="12px" />,
+    route: "/documentation",
+    component: <Documentation />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Reports",
+    key: "reports",
+    icon: <CreditCard size="12px" />,
+    route: "/reports",
+    component: <ImageReports />,
+    noCollapse: true,
   },
   {
     type: "collapse",
