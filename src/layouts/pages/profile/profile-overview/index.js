@@ -62,7 +62,9 @@ function Overview() {
               action={{ route: "", tooltip: "Edit Profile" }}
             />
           </Grid>
-
+          <Grid item xs={12} xl={4}>
+            <ProfilesList title="conversations" profiles={profilesListData} />
+          </Grid>
         </Grid>
       </SoftBox>
       <Footer />
