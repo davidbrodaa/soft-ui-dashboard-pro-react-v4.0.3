@@ -20,7 +20,7 @@ function PlatformSettings() {
     <Card>
       <SoftBox pt={2} px={2}>
         <SoftTypography variant="h6" fontWeight="medium" textTransform="capitalize">
-          platform settingsc
+          Account Settings
         </SoftTypography>
       </SoftBox>
       <SoftBox pt={1.5} pb={2} px={2} lineHeight={1.25}>
