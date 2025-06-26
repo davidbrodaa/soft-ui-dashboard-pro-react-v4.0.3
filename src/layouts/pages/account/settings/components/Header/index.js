@@ -52,7 +52,7 @@ function Header() {
                 ABC Inc.
               </SoftTypography>
               <SoftTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                Profile Private
               </SoftTypography>
             </SoftBox>
           </Grid>
