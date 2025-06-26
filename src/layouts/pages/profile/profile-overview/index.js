@@ -62,8 +62,7 @@ function Overview() {
               action={{ route: "", tooltip: "Edit Profile" }}
             />
           </Grid>
-         
-          </Grid>
+
         </Grid>
       </SoftBox>
       <Footer />
