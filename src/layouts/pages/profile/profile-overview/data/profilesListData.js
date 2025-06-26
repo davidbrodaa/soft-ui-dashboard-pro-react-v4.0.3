@@ -17,7 +17,7 @@ const profilesListData = [
       label: "reply",
     },
   },
- /*  {
+   /*{
     image: marie,
     name: "Anne Marie",
     description: "Awesome work, can you..",
