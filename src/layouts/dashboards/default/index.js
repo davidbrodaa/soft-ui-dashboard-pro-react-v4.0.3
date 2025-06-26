@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard PRO React - v4.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react
-* Copyright 2024 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
@@ -79,14 +64,14 @@ function Default() {
               <Grid item xs={12} sm={5}>
                 <SoftBox mb={3}>
                   <MiniStatisticsCard
-                    title={{ text: "today's money", fontWeight: "bold" }}
+                    title={{ text: "today's transfers", fontWeight: "bold" }}
                     count="$53,000"
                     percentage={{ color: "success", text: "+55%" }}
                     icon={{ color: "info", component: "paid" }}
                   />
                 </SoftBox>
                 <MiniStatisticsCard
-                  title={{ text: "today's users", fontWeight: "bold" }}
+                  title={{ text: "today's files", fontWeight: "bold" }}
                   count="2,300"
                   percentage={{ color: "success", text: "+3%" }}
                   icon={{ color: "info", component: "public" }}
@@ -95,7 +80,7 @@ function Default() {
               <Grid item xs={12} sm={5}>
                 <SoftBox mb={3}>
                   <MiniStatisticsCard
-                    title={{ text: "new clients", fontWeight: "bold" }}
+                    title={{ text: "clients activity", fontWeight: "bold" }}
                     count="+3,462"
                     percentage={{ color: "error", text: "-2%" }}
                     icon={{ color: "info", component: "emoji_events" }}
@@ -118,7 +103,7 @@ function Default() {
           <Grid item xs={12} md={10} lg={7}>
             <Grid item xs={12} lg={10}>
               <SoftBox mb={3} position="relative">
-                <SalesTable title="Sales by Country" rows={salesTableData} />
+                <SalesTable title="Transfers by Country" rows={salesTableData} />
               </SoftBox>
             </Grid>
           </Grid>
@@ -137,7 +122,7 @@ function Default() {
             </Grid>
             <Grid item xs={12} lg={7}>
               <GradientLineChart
-                title="Sales Overview"
+                title="Transfers Overview"
                 description={
                   <SoftBox display="flex" alignItems="center">
                     <SoftBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
