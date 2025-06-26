@@ -65,7 +65,7 @@ function Default() {
                 <SoftBox mb={3}>
                   <MiniStatisticsCard
                     title={{ text: "today's transfers", fontWeight: "bold" }}
-                    count="$53,000"
+                    count="332"
                     percentage={{ color: "success", text: "+55%" }}
                     icon={{ color: "info", component: "paid" }}
                   />
