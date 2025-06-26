@@ -18,11 +18,6 @@ const pageRoutes = [
         key: "default",
         route: "/dashboards/default",
       },
-      {
-        name: "Smart Home",
-        key: "smart-home",
-        route: "/dashboards/smart-home",
-      },
       { name: "CRM", key: "crm", route: "/dashboards/crm" },
     ],
   },
