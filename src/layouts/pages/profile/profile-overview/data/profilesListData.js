@@ -8,7 +8,7 @@ import team4 from "assets/images/team-4.jpg";
 const profilesListData = [
   {
     image: kal,
-    name: "Sophie B.",
+    name: "Sophie Inc.",
     description: "Hi! I need more information..",
     action: {
       type: "internal",
