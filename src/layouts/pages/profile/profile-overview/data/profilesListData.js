@@ -6,7 +6,7 @@ import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
 
 const profilesListData = [
-
+a
 ];
 
 export default profilesListData;
