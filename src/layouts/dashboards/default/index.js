@@ -81,7 +81,7 @@ function Default() {
                 <SoftBox mb={3}>
                   <MiniStatisticsCard
                     title={{ text: "clients activity", fontWeight: "bold" }}
-                    count="+3,462"
+                    count="5"
                     percentage={{ color: "error", text: "-2%" }}
                     icon={{ color: "info", component: "emoji_events" }}
                   />
