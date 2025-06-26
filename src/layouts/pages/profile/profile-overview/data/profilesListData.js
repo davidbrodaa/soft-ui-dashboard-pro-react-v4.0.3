@@ -18,7 +18,7 @@ const profilesListData = [
     },
   },
   {
-    image: marie,
+    //image: marie,
     name: "Anne Marie",
     description: "Awesome work, can you..",
     action: {
