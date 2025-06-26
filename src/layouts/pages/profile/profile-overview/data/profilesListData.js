@@ -19,8 +19,8 @@ const profilesListData = [
   },
   {
     //image: marie,
-    name: "Anne Marie",
-    description: "Awesome work, can you..",
+    name: "Google Inc.",
+    description: "Connection request.",
     action: {
       type: "internal",
       route: "/pages/profile/profile-overview",
