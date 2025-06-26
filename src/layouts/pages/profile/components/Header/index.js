@@ -114,6 +114,10 @@ function Header() {
             <SoftBox height="100%" mt={0.5} lineHeight={1}>
               <SoftTypography variant="h5" fontWeight="medium">
                 ABC Inc.
+              </SoftTypography>
+              <SoftTypography variant="button" color="text" fontWeight="medium">
+                Profile Private
+              </SoftTypography>
             </SoftBox>
           </Grid>
           <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
