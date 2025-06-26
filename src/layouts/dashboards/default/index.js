@@ -114,6 +114,7 @@ function Default() {
                 description={
                   <>
                     (<strong>+23%</strong>) than last week
+                    )
                   </>
                 }
                 chart={chart}
