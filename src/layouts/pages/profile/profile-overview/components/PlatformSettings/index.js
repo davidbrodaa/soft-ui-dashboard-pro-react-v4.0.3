@@ -33,7 +33,7 @@ function PlatformSettings() {
           </SoftBox>
           <SoftBox width="80%" ml={2}>
             <SoftTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone follows me
+              Email me when someone follows mae
             </SoftTypography>
           </SoftBox>
         </SoftBox>
