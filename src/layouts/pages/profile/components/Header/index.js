@@ -128,9 +128,9 @@ function Header() {
                 onChange={handleSetTabValue}
                 sx={{ background: "transparent" }}
               >
-                <Tab label="App" icon={<Cube />} />
+           
                 <Tab label="Message" icon={<Document />} />
-                <Tab label="Settings" icon={<Settings />} />
+                
               </Tabs>
             </AppBar>
           </Grid>
