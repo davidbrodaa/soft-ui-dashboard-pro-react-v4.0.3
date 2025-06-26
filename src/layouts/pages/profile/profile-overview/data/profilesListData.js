@@ -6,7 +6,7 @@ import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
 
 const profilesListData = [
- {
+  {
     image: kal,
     name: "Sophie B.",
     description: "Hi! I need more information..",
@@ -17,7 +17,7 @@ const profilesListData = [
       label: "reply",
     },
   },
-   {
+  {
     image: marie,
     name: "Anne Marie",
     description: "Awesome work, can you..",
