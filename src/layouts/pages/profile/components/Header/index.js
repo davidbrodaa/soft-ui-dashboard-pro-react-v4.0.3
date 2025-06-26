@@ -127,10 +127,7 @@ function Header() {
                 value={tabValue}
                 onChange={handleSetTabValue}
                 sx={{ background: "transparent" }}
-              >
-           
-                <Tab label="Message" icon={<Document />} />
-                
+              >           
               </Tabs>
             </AppBar>
           </Grid>
