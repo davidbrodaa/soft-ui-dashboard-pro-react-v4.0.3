@@ -62,5 +62,5 @@ const profilesListData = [
     },
   },
 ];
-*/
+
 export default profilesListData;
