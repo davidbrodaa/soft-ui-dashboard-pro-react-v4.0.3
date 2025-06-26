@@ -83,7 +83,8 @@ function Default() {
                     title={{ text: "clients activity", fontWeight: "bold" }}
                     count="5"
                     percentage={{ color: "error", text: "-2%" }}
-                                  />
+                    icon={{ color: "info", component: "person" }}
+                  />
                 </SoftBox>
                 <SoftBox mb={3}>
                   <MiniStatisticsCard
