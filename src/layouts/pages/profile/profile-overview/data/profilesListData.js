@@ -28,7 +28,7 @@ const profilesListData = [
       label: "reply",
     },
   },
-  {
+ // {
     image: ivana,
     name: "Ivanna",
     description: "About files I can..",
