@@ -6,6 +6,10 @@ import PropTypes from "prop-types";
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || "https://your-supabase-url.supabase.co";
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY || "your-supabase-anon-key";
 
+// Log the Supabase configuration for debugging (remove in production)
+console.log("Supabase URL:", supabaseUrl);
+console.log("Supabase Key length:", supabaseAnonKey ? supabaseAnonKey.length : 0);
+
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Create context
@@ -19,10 +23,18 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check active sessions and sets the user
-    const session = supabase.auth.getSession();
+    const getSession = async () => {
+      try {
+        const { data } = await supabase.auth.getSession();
+        setUser(data?.session?.user || null);
+      } catch (err) {
+        console.error("Error getting session:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    setUser(session?.user || null);
-    setLoading(false);
+    getSession();
 
     // Listen for changes on auth state (logged in, signed out, etc.)
     const { data: authListener } = supabase.auth.onAuthStateChange(
